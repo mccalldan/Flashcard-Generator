@@ -1,0 +1,1 @@
+{"front":"What city do the Carolina Panthers play in?","back":"Charlotte","type":"basic"};{"text":"Lebron James plays for the Cavaliers","cloze":"Cavaliers","clozeDeleted":"Lebron James plays for the _____","type":"cloze"};{"front":"Who is the president?","back":"Trump","type":"basic"};{"front":"What is a job-related Social Media website?","back":"LinkedIn","type":"basic"};
