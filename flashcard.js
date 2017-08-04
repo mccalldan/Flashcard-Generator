@@ -2,15 +2,9 @@ var fs = require("fs");
 var BasicCard = require("./BasicCard.js");
 var ClozeCard = require("./ClozeCard.js");
 var inquirer = require("inquirer");
-
-// require basic flashcard module
 var BasicFlashcard = require('./BasicCard.js');
-// require cloze flashcard module
 var ClozeFlashcard = require('./ClozeCard.js');
-// require inquirer for getting user input at command line
-var inquirer = require('inquirer');
-// require fs
-var fs = require('fs');
+
 
 inquirer.prompt([{
     name: 'command',
@@ -30,7 +24,7 @@ inquirer.prompt([{
 });
 
 var addCard = function() {
-    // get user input
+   
     inquirer.prompt([{
         name: 'cardType',
         message: 'What kind of flashcard would you like to create?',
@@ -40,7 +34,7 @@ var addCard = function() {
         }, {
             name: 'cloze-flashcard'
         }]
-    // once user input is received
+    
     }]).then(function(answer) {
         if (answer.cardType === 'basic-flashcard') {
             inquirer.prompt([{
@@ -66,7 +60,7 @@ var addCard = function() {
                     }
                 }
             }]).then(function(answer) {
-                var newBasic = new BasicFlashcard(answer.front, answer.back);
+                var newBasic = new BasicCard(answer.front, answer.back);
                 newBasic.create();
                 whatsNext();
             });
@@ -97,7 +91,7 @@ var addCard = function() {
                 var text = answer.text;
                 var cloze = answer.cloze;
                 if (text.includes(cloze)) {
-                    var newCloze = new ClozeFlashcard(text, cloze);
+                    var newCloze = new ClozeCard(text, cloze);
                     newCloze.create();
                     whatsNext();
                 } else {
@@ -173,7 +167,7 @@ var showQuestion = function(array, index) {
               showQuestion(array, index + 1);
             }
         } else {
-            console.log('Wrong!');
+            console.log('Incorrect!');
             if (index < array.length - 1) {
               showQuestion(array, index + 1);
             }

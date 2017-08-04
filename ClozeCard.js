@@ -12,9 +12,9 @@ var ClozeCard = function(text,cloze){
             clozeDeleted: this.clozeDeleted,
             type: "cloze"
         };
-        // add card to log.txt
+        
         fs.appendFile("log.txt", JSON.stringify(data) + ';', "utf8", function(error) {
-            // if there is an error, log the error ;)
+          
             if (error) {
                 console.log(error);
             }
